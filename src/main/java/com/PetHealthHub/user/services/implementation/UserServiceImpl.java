@@ -1,10 +1,10 @@
-package user.services.implementation;
+package com.PetHealthHub.user.services.implementation;
 
+import com.PetHealthHub.user.User;
+import com.PetHealthHub.user.UserDto;
+import com.PetHealthHub.user.UserRepository;
+import com.PetHealthHub.user.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
-import user.User;
-import user.UserDto;
-import user.UserRepository;
-import user.services.UserService;
 
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;

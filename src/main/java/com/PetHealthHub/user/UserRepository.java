@@ -1,4 +1,4 @@
-package user;
+package com.PetHealthHub.user;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,4 +1,4 @@
-package user;
+package com.PetHealthHub.user;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
