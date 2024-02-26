@@ -5,7 +5,10 @@ import com.PetHealthHub.user.UserDto;
 import com.PetHealthHub.user.UserRepository;
 import com.PetHealthHub.user.services.UserService;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
 
+
+@Service
 public class UserServiceImpl implements UserService {
     private UserRepository userRepository;
     private PasswordEncoder passwordEncoder;
