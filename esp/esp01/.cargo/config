@@ -1,0 +1,15 @@
+
+[target.xtensa-esp8266-none-elf] # esp8266
+rustflags = [
+  "-C", "link-arg=-Wl,-Tlink.x",
+  "-C", "link-arg=-nostartfiles",
+]
+
+# Runner properties.
+runner = "espflash flash --monitor"
+
+[build]
+target = "xtensa-esp8266-none-elf"
+
+[unstable]
+build-std = ["core"]
