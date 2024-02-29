@@ -31,13 +31,13 @@ public class SpringSecurity {
                 .authorizeRequests((authorize) ->
                         authorize
                                 .requestMatchers("/registration/**", "/login", "/resources/**").permitAll()
-                                .requestMatchers("/account", "/settings/**").authenticated()
+                                .requestMatchers("/main-page", "/settings/**").authenticated()
                 )
                 .formLogin(
                         form -> form
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
-                                .defaultSuccessUrl("/account")
+                                .defaultSuccessUrl("/main-page")
                                 .permitAll()
                 )
                 .logout(
