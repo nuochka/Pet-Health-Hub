@@ -14,6 +14,8 @@ import lombok.Setter;
 
 // Creating a user's entity for writing information about user to database
 public class User {
+
+    private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,7 +26,7 @@ public class User {
     @Column(nullable=false, name = "lastname")
     private String lastname;
 
-    @Column(nullable=false, name = "email")
+    @Column(nullable=false, name = "email", unique = true)
     private String email;
 
     @Column(nullable=false, name = "password")
