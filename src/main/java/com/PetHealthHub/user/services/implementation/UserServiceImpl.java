@@ -18,18 +18,18 @@ public class UserServiceImpl implements UserService {
     }
 
     /*
-      This method is used to save a user to the database. It takes a UserDto object as input,
-      extracts the necessary information, encodes the password,
-      and then saves the user to the UserRepository.
-     */
+          This method is used to save a user to the database. It takes a UserDto object as input,
+          extracts the necessary information, encodes the password,
+          and then saves the user to the UserRepository.
+         */
     @Override
-    public void saveUser(UserDto userDto){
-        User user = new User();
-        user.setFirstname(userDto.getFirstname());
-        user.setLastname(userDto.getLastname());
-        user.setEmail(userDto.getEmail());
-        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
+    public User saveUser(User user) {
+        user.setFirstname(user.getFirstname());
+        user.setLastname(user.getLastname());
+        user.setEmail(user.getEmail());
+        user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
+        return user;
     }
 
     @Override
