@@ -6,7 +6,32 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="/img/mini-logo.png" type="image/x-icon">
 </head>
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="/welcome">
+            <img src="/img/logotype.png" alt="Logotype" class="no-copy-drag logotype">
+        </a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link user-info" href="/settings">
+                        <ion-icon name="log-in-outline"></ion-icon> Sign in
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link user-info" href="/welcome">
+                        <ion-icon name="home-outline"></ion-icon> Home page
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</header>
 <body>
 <main>
     <div class="container mt-5">
@@ -22,25 +47,25 @@
 
                     <div class="form-group">
                         <label class="control-label" for="firstname">Firstname:</label>
-                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder = "Enter your firstname" required autofocus="autofocus">
+                        <input type="text" class="form-control" id="firstname" name="firstname" placeholder = "Enter your firstname" required autofocus="autofocus" th:field = "*{firstname}">
                         <p class="text-danger" id="firstname_error">Please provide at least one symbol.</p>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="lastname">Lastname:</label>
-                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder = "Enter your lastname" required autofocus="autofocus">
+                        <input type="text" class="form-control" id="lastname" name="lastname" placeholder = "Enter your lastname" required autofocus="autofocus" th:field = "*{lastname}">
                         <p class="text-danger" id="lastname_error">Please provide at least one symbol.</p>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="email">Email:</label>
-                        <input type="email" class="form-control" id="email" name="email" placeholder = "Enter your email">
+                        <input type="email" class="form-control" id="email" name="email" placeholder = "Enter your email" th:field = "*{email}">
                         <p class="text-danger" id="email_error">Please provide a valid email.</p>
                     </div>
 
                     <div class="form-group">
                         <label class="control-label" for="password">Password:</label>
-                        <input type="password" class="form-control" id="password" name="password" placeholder = "Enter your password" required autofocus="autofocus">
+                        <input type="password" class="form-control" id="password" name="password" placeholder = "Enter your password" th:field = "*{password}" required autofocus="autofocus">
                         <p class="text-danger" id="password_error">Password should have at least one digit, one uppercase letter, and a minimum length of 8 characters.</p>
                     </div>
 
@@ -63,6 +88,8 @@
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 <script src = "/scripts/register.js" defer></script>
 </body>
 </html>

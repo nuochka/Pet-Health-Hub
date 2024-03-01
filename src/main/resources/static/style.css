@@ -1,3 +1,12 @@
+.navbar{
+    font-size: 18px;
+}
+.logotype{
+    max-width: 150px;
+    height: auto;
+    width: auto;
+}
+
 .no-copy-drag {
     user-select: none;
     -webkit-user-select: none;
