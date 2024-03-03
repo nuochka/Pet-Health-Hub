@@ -5,9 +5,6 @@
  * regular linker scripts which are used for all esp targets could map other memory regions. 
  * */
 
-/* Entry function */
-ENTRY(ESP8266Reset)
-
 /* Memory regions definitions */
 INCLUDE "memory.ld"
 
