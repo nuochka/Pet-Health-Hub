@@ -1,15 +1,15 @@
 [package]
-name = "esp8266"
+name = "phh-firmware-esp8266"
 version = "0.1.0"
 authors = ["notforest <notforest69@gmail.com>"]
 edition = "2018"
 required-features = ["xtensa-lx-rt/lx106", "xtensa-lx/lx106", "esp8266-hal"]
 
 [dependencies]
-esp8266      = { version = "0.6", links = "xtensa-lx"}
-xtensa-lx    = { version = "0.7", features = ["esp8266"] }
-xtensa-lx-rt = { version = "0.16", features = ["esp8266"] }
-panic-halt   = "0.2.0"
+esp8266      =  { version = "0.6", links = "xtensa-lx"}
+xtensa-lx    =  { version = "0.7", features = ["esp8266"] }
+xtensa-lx-rt =  { version = "0.16", features = ["esp8266"] }
+phh-esp-panic = { version = "0.1.0", path = "../phh-esp-panic/"}
 
 [features]
 RAMONLY = [] # For writing the whole code into RAM memory only.
