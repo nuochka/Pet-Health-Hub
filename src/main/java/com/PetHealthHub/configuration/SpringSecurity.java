@@ -12,6 +12,7 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
@@ -38,6 +39,7 @@ public class SpringSecurity {
                                 .loginPage("/login")
                                 .loginProcessingUrl("/login")
                                 .defaultSuccessUrl("/main-page")
+                                .successHandler(successHandler())
                                 .permitAll()
                 )
                 .logout(
@@ -53,5 +55,13 @@ public class SpringSecurity {
         auth
                 .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder());
+    }
+
+    private AuthenticationSuccessHandler successHandler(){
+        return (request, response, authentication) -> {
+            String username = authentication.getName();
+            request.getSession().setAttribute("username", username);
+            response.sendRedirect("/main-page");
+        };
     }
 }
