@@ -8,7 +8,7 @@
 #![no_std]
 #![no_main]
 
-use panic_halt as _;        // Panicking
+use phh_esp_panic as _;     // Panicking
 use xtensa_lx as _;         // Xtensa CPU features
 use xtensa_lx_rt::entry;    // Xtensa CPU startup functions and vector mapping.
 
