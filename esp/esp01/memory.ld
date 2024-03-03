@@ -13,8 +13,8 @@ STACK_SIZE = 8K;
 MEMORY
 {
   reserved_cache_seg    : ORIGIN = 0x40070000, len = 64K                /* SRAM0; reserved for usage as flash cache*/
-  vectors_seg       (rx): ORIGIN = 0x40100000, len = 0x100              /* SRAM0 */
-  iram_seg          (rx): ORIGIN = 0x40100100, len = 0x8000 - 0x0100    /* SRAM0 */
+  vectors_seg       (rx): ORIGIN = 0x40080000, len = 0x116              /* SRAM0 */
+  iram_seg          (rx): ORIGIN = 0x40080116, len = 0x8000 - 0x0100    /* SRAM0 */
 
   reserved_for_rom_seg  : ORIGIN = 0x3FFAE000, len = 8K                 /* SRAM2; reserved for usage by the ROM */
   dram_seg          (rw): ORIGIN = 0x3FFE8000, len = 0x14000            /* SRAM2+1; first 64kB used by BT if enable */
