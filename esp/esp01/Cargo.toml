@@ -18,8 +18,8 @@ RAMONLY = [] # For writing the whole code into RAM memory only.
 overflow-checks = false
 
 [profile.dev.package.xtensa-lx-rt]
-opt-level = 'z'
+#opt-level = 'z'
 
 [profile.release]
-opt-level = 'z'
-lto = true
+#opt-level = 'z'
+#lto = true
