@@ -2,11 +2,18 @@
 name = "phh-firmware-esp8266"
 version = "0.1.0"
 authors = ["notforest <notforest69@gmail.com>"]
-edition = "2018"
+edition = "2021"
+license = "MIT OR Apache-2.0"
 required-features = ["xtensa-lx-rt/lx106", "xtensa-lx/lx106", "esp8266-hal"]
 
 [dependencies]
+nb           = "1.0"
+esp-println =   { version = "0.7.1", features = ["uart", "esp8266", "log", "colors"], default-features = false }
+log =           { version = "0.4.20" }
+
+#esp8266-hal  =  { version = "0.5" }
 esp8266      =  { version = "0.6", links = "xtensa-lx"}
+
 xtensa-lx    =  { version = "0.7", features = ["esp8266"] }
 xtensa-lx-rt =  { version = "0.16", features = ["esp8266"] }
 phh-esp-panic = { version = "0.1.0", path = "../phh-esp-panic/"}
