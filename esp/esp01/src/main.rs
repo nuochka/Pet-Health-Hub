@@ -3,56 +3,30 @@
 //! This binary is dedicated to ESP8266 (ESP-01) target, therefore special xtensa API is included
 //! and used as a main processor library. PAC crate esp8266 is used for manipulations with mc
 //! device.
+//!
+//! This binary sets the environment for reading from sensors and establishes connection with PHH
+//! server and database.
 
-#![feature(custom_test_frameworks)]
-#![allow(dead_code)]
+#![allow(unreachable_code, unused_variables)]
 #![no_std]
 #![no_main]
 
-use core::cell::RefCell;
-
-use esp8266 as device;                  // Target device PAC, created with svd2rust.
-
-use device::GPIO;                       // Device GPIO.
-
-use xtensa_lx_rt::{entry, pre_init};    // Xtensa CPU startup functions and vector mapping.
-use xtensa_lx::{                        // Xtensa CPU features
-    self,
-    interrupt,
-};
+use esp8266::Peripherals;               // ESP8266 PAC
+use xtensa_lx_rt::{entry, pre_init};    // Startup code
+use xtensa_lx as _;                     // Processor crate
 use phh_esp_panic as _;                 // Panicking
 
-const GPIO: RefCell<Option<GPIO>> = RefCell::new(None);
-
-/// Initialization code for the application.
+/// Hardware initialization.
 #[pre_init]
 unsafe fn init() {
-    let dp = device::Peripherals::take().unwrap(); // Startup initialization.
+    let dp = Peripherals::take().unwrap();
 
-    let gpio = dp.GPIO;        // Main GPIO pins.
-    
-
-    interrupt::free(|_cs| {
-        gpio.gpio_enable.write(|w| 
-            w.gpio_enable_data().bits(0xffff)
-        );
-
-        gpio.gpio_out.write(|w|
-            w.gpio_out_data().bits(0xffff)
-        );
-
-        GPIO.borrow_mut().replace(gpio);    
-    });
+    esp_println::logger::init_logger(log::LevelFilter::Debug);
+    log::info!("Logger is setup");
 }
 
-/// Main firmware kernel code.
+/// Main kernel space.
 #[entry]
 fn main() -> ! {
-    let mut gpio = GPIO;
-
-    gpio.get_mut().as_mut().unwrap().gpio_in.write(|w|
-        unsafe { w.bits(0xffff) }
-    ); 
-
     loop {}
 }

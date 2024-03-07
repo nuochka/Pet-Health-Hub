@@ -1,39 +1,35 @@
+//! Main firmware binary of PHH aplication
+//!
+//! This binary is dedicated to ESP32 target. The HAL is mainly used for initiazation purposes.
+//!
+//! This binary sets the environment for reading from sensors and establishes connection with PHH
+//! server and database.
+
 #![no_std]
 #![no_main]
+#![allow(unreachable_code, unused_variables)]
 
-use esp32_hal::{clock::ClockControl, peripherals::Peripherals, prelude::*, Delay};
+use esp32_hal::{
+    prelude::*,
+    peripherals::Peripherals,
+};
 use esp_backtrace as _;
-use esp_println::println;
 
-use esp_wifi::{initialize, EspWifiInitFor};
-
-use esp32_hal::{timer::TimerGroup, Rng};
+/// Hardware initialization.
 #[entry]
 fn init() -> ! {
     let peripherals = Peripherals::take();
     let system = peripherals.SYSTEM.split();
 
-    let clocks = ClockControl::max(system.clock_control).freeze();
-    let mut delay = Delay::new(&clocks);
-
-    // setup logger
-    // To change the log_level change the env section in .cargo/config.toml
-    // or remove it and set ESP_LOGLEVEL manually before running cargo run
-    // this requires a clean rebuild because of https://github.com/rust-lang/cargo/issues/10358
-    esp_println::logger::init_logger_from_env();
+    esp_println::logger::init_logger(log::LevelFilter::Debug);
     log::info!("Logger is setup");
-    println!("Hello world!");
-    let timer = TimerGroup::new(peripherals.TIMG1, &clocks).timer0;
-    let _init = initialize(
-        EspWifiInitFor::Wifi,
-        timer,
-        Rng::new(peripherals.RNG),
-        system.radio_clock_control,
-        &clocks,
-    )
-    .unwrap();
-    loop {
-        println!("Loop...");
-        delay.delay_ms(500u32);
-    }
+
+    main(); // Main kernel.
+
+    loop {}
+}
+
+/// Main kernel space.
+fn main() -> ! {
+    loop {}
 }
