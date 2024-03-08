@@ -45,3 +45,133 @@
     margin: 20px;
 }
 
+
+/* Reset CSS */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Basic Styles */
+.welcome-img img{
+    max-width: 100%;
+}
+
+.row{
+    flex-wrap: nowrap !important;
+}
+@media(max-width: 767px){
+    .row{
+        flex-wrap: wrap !important;
+        margin: 20px;
+    }
+    .welcome-button{
+        margin-bottom: 40px;
+    }
+}
+.img-welcome {
+    display: block;
+    margin: 0 auto;
+    object-fit: cover;
+}
+
+h2 {
+    margin-top: 15px;
+}
+
+
+.welcome{
+    padding: 0 !important;
+    margin: 0 !important;
+    box-shadow: none !important;
+}
+.col-md-12{
+    background-color: #f2f2f2;
+    margin-bottom: 30px;
+}
+body {
+    overflow-x: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.welcome-text{
+    text-align: left;
+    margin-top: 20%;
+    margin-left: 15%;
+    margin-right: 10%;
+    font-family: ui-serif;
+
+}
+.welcome-text p{
+    color: gray;
+    font-family: ui-serif;
+    font-size: 23px;
+}
+.welcome-text h2{
+    font-size: 70px;
+}
+
+.welcome-button {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.welcome-button a {
+    display: inline-block;
+    width: 50%;
+    padding: 10px 0;
+    background-color: #a641b6;
+    color: #ffffff;
+    text-decoration: none;
+    border: none;
+    border-radius: 10px;
+    transition: background-color 0.3s;
+}
+
+.welcome-button a:hover {
+    color: white;
+    background-color: #7B1FA2;
+    cursor: pointer;
+}
+
+.about{
+    background-color: #f2f2f2;
+}
+.services {;
+    margin-right: 20%;
+    margin-left: 20%;
+    text-align: center;
+    margin-bottom: 5%;
+}
+
+.title {
+    font-size: 50px;
+    font-weight: bold;
+    color: #7c2e79;
+    font-style: italic;
+}
+
+.description{
+    font-size: 23px;
+    color: gray;
+    font-family: ui-serif;
+}
+.welcome-table {
+    margin-left: 10%;
+    margin-right: 10%;
+    column-gap: 10px;
+    justify-items: center;
+}
+.welcome-li{
+    text-align: left;
+    margin-left: 21%;
+    width: 70%;
+    font-size: 18px;
+    color: #aeaeae;
+}
+.welcome-service{
+    margin-top: 40px;
+}
+
+
